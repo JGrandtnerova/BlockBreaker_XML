@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ActorCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Actors>
+    <Actors Name="sss">
+      <Level>1</Level>
+      <Score>2</Score>
+    </Actors>
+  </Actors>
+</ActorCollection>
