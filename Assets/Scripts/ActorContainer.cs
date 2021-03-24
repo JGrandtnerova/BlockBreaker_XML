@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 
-[XmlRoot("ActorCollection")]
+[XmlRoot("ActorCollection")] //nazov schemy rootu/korena XML dokumentu
 public class ActorContainer
 {
     [XmlArray("Actors")]

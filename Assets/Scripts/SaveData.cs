@@ -7,17 +7,9 @@ using UnityEngine;
 
 public class SaveData 
 {
-    public static ActorContainer actorContainer = new ActorContainer();
-
-    public delegate void SerializeAction();
-    public static event SerializeAction OnLoaded;
-    public static event SerializeAction OnBeforeSave;
-
-
-
-
     public static ActorData Load(string path,string name)
     {
+        ActorContainer actorContainer = new ActorContainer();
         actorContainer = LoadActors(path);
 
         foreach(ActorData data in actorContainer.actors)
@@ -31,46 +23,31 @@ public class SaveData
         return null;
 
     }
-    public static void Save(string path,ActorContainer actors)
-    {
-        OnBeforeSave();
-        SaveActors(path, actors);
-        ClearActors();
-    }
-    public static void AddActorData(ActorData data)
-    {
-        actorContainer.actors.Add(data);
 
-    }
-    public static void ClearActors()
-    {
-        actorContainer.actors.Clear();
-    }
-
-    public static void SaveActor(ActorData  data)
+    public static void SaveActor(ActorData  tosavedata)
     {
         bool saved = false;
 
 
         ActorContainer newactors = new ActorContainer();
-        ActorContainer actors = SaveData.LoadActors(System.IO.Path.Combine(Application.dataPath, "Resources/actors.xml"));
-        foreach (ActorData datas in actors.actors)
+        ActorContainer actors = SaveData.LoadActors(Path.Combine(Application.dataPath, "Resources/actors.xml"));
+        foreach (ActorData data in actors.actors)
         {
-            if (datas.name == data.name)
+            if (data.name == tosavedata.name)
             {
-                newactors.actors.Add(data);
+                newactors.actors.Add(tosavedata);
                 saved = true;
             }
-            else { newactors.actors.Add(datas); }
+            else { newactors.actors.Add(data); }
 
         }
-        Console.WriteLine(data);
+        Console.WriteLine(tosavedata);
         if (!saved)
         {
-            newactors.actors.Add(data);
+            newactors.actors.Add(tosavedata);
         }
 
-        SaveData.SaveActors(System.IO.Path.Combine(Application.dataPath, "Resources/actors.xml"), newactors);
+        SaveData.SaveActors(Path.Combine(Application.dataPath, "Resources/actors.xml"), newactors);
     }
     public static ActorContainer LoadActors(string path)
     {
@@ -79,6 +56,7 @@ public class SaveData
         ActorContainer actors = serializer.Deserialize(stream) as ActorContainer;
       
         stream.Close();
+        
         return actors;
     }
     public static void SaveActors(string path,ActorContainer actors)

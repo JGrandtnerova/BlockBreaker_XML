@@ -12,16 +12,13 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadNextScene()
     {
-        // call script player with name  and level and score 
-
-       
-
+        // pri presune z levelov
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
     public void LoadfirstScene()
     {
-        // call script player with name  and level and score 
+        // zo start buttonu do lvl1 
         
         PauseMenu.playername = playername.text;
 

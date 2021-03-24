@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
     public static bool gamePaused = false;
 
     public GameObject pauseMenuUI;
@@ -56,7 +55,6 @@ public class PauseMenu : MonoBehaviour
         ActorData data = SaveData.Load(System.IO.Path.Combine(Application.dataPath, "Resources/actors.xml"), playername);
         GameStatus.currentScore = data.score;
         SceneManager.LoadScene(data.level);
-        Time.timeScale = 1f;
         gamePaused = false;
     }
 }
