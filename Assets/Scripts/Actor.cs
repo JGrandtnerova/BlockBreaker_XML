@@ -2,40 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Actor : MonoBehaviour
+public class Actor
 {
     public ActorData data = new ActorData();
 
     [SerializeField]
-   public static string playername;
+    string playername;
 
     [SerializeField]
-    public static int level = 1;
+    int level;
 
     [SerializeField]
-    public static int score = 0;
+    int score;
 
-    public void StoreData()
-    {
-        data.name = playername;
-        data.score = score;
-        data.level = level;
-    }
-
-    public void LoadData()
-    {
-        playername = data.name;
-        score = data.score;
-        level = data.level;
-    }
-
-    private void OnEnable()
-    {
-        
-    }
-    private void OnDisable()
-    {
-
-    }
+    public string Playername { get => playername; set => playername = value; }
+    public int Level { get => level; set => level = value; }
+    public int Score { get => score; set => score = value; }
 }
-

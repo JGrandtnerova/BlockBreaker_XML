@@ -14,10 +14,20 @@ public class SceneLoader : MonoBehaviour
     {
         // call script player with name  and level and score 
 
+       
+
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex + 1);
+    }
+    public void LoadfirstScene()
+    {
+        // call script player with name  and level and score 
+        
         PauseMenu.playername = playername.text;
 
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
+        GameStatus.currentScore = 0;
     }
 
     public void LoadStartScene()
@@ -30,8 +40,11 @@ public class SceneLoader : MonoBehaviour
         string name = playername.text;
         ActorData data = SaveData.Load(System.IO.Path.Combine(Application.dataPath, "Resources/actors.xml"), name);
         PauseMenu.playername = name;
-        GameStatus.currentScore = data.score;
+        
+        Debug.Log("Text: " + data.score);
         SceneManager.LoadScene(data.level);
+        GameStatus.currentScore = data.score;
+
     }
 
     public void QuitGame()

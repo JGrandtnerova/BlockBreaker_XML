@@ -13,19 +13,6 @@ public class GameStatus : MonoBehaviour
 
     [SerializeField] bool isAutoPlayEnabled;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        scoreText.text = currentScore.ToString();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Time.timeScale = gameSpeed;
-    }
-
     public void AddToScore()
     {
         currentScore += pointsPerBlockDestroyed;

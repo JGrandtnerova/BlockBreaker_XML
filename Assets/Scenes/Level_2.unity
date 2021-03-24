@@ -4153,7 +4153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5414982405590455146, guid: 769ad4408002a6546ac23d427c081ff8, type: 3}
       propertyPath: isAutoPlayEnabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5414982405590455147, guid: 769ad4408002a6546ac23d427c081ff8, type: 3}
       propertyPath: m_LocalPosition.x

@@ -5,5 +5,9 @@
       <Level>1</Level>
       <Score>2</Score>
     </Actors>
+    <Actors Name="Player1">
+      <Level>2</Level>
+      <Score>52</Score>
+    </Actors>
   </Actors>
 </ActorCollection>

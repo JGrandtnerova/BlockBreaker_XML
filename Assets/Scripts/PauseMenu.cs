@@ -43,16 +43,12 @@ public class PauseMenu : MonoBehaviour
 
     public void SaveDatas()
     {
-         ActorData data = new ActorData();
+        ActorData data = new ActorData();
         data.name = playername;
         data.level = SceneManager.GetActiveScene().buildIndex;
         data.score = GameStatus.currentScore;
 
-        ActorContainer actors = new ActorContainer(); //SaveData.LoadActors(System.IO.Path.Combine(Application.dataPath, "Resources/actors.xml"));
-        actors.actors.Add(data);
-        Console.WriteLine(data);
-
-        SaveData.SaveActors(System.IO.Path.Combine(Application.dataPath, "Resources/actors.xml"), actors);
+        SaveData.SaveActor(data);
     }
 
     public void LoadData()
@@ -60,5 +56,7 @@ public class PauseMenu : MonoBehaviour
         ActorData data = SaveData.Load(System.IO.Path.Combine(Application.dataPath, "Resources/actors.xml"), playername);
         GameStatus.currentScore = data.score;
         SceneManager.LoadScene(data.level);
+        Time.timeScale = 1f;
+        gamePaused = false;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
@@ -46,6 +47,31 @@ public class SaveData
         actorContainer.actors.Clear();
     }
 
+    public static void SaveActor(ActorData  data)
+    {
+        bool saved = false;
+
+
+        ActorContainer newactors = new ActorContainer();
+        ActorContainer actors = SaveData.LoadActors(System.IO.Path.Combine(Application.dataPath, "Resources/actors.xml"));
+        foreach (ActorData datas in actors.actors)
+        {
+            if (datas.name == data.name)
+            {
+                newactors.actors.Add(data);
+                saved = true;
+            }
+            else { newactors.actors.Add(datas); }
+
+        }
+        Console.WriteLine(data);
+        if (!saved)
+        {
+            newactors.actors.Add(data);
+        }
+
+        SaveData.SaveActors(System.IO.Path.Combine(Application.dataPath, "Resources/actors.xml"), newactors);
+    }
     public static ActorContainer LoadActors(string path)
     {
         XmlSerializer serializer = new XmlSerializer(typeof(ActorContainer));
