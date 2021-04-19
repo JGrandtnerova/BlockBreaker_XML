@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 758453170186026232}
   m_Layer: 0
   m_Name: Paddle
-  m_TagString: Untagged
+  m_TagString: paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,3 +141,9 @@ MonoBehaviour:
   screenWidthInUnits: 16
   minX: 1.25
   maxX: 15.52
+  BonusSize: 1
+  zivot: 3
+  healthCount: {fileID: 0}
+  extraball: {fileID: 571525652023721301, guid: 06278a6f03c72564ca5270e6f0dba80a, type: 3}
+  ball: {fileID: 0}
+  timeRemaining: 0

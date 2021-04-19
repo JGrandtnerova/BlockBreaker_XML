@@ -2,12 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml.Serialization;
 using UnityEngine;
 
 public class SaveData 
 {
-    public static ActorData Load(string path,string name)
+    public static ActorData LoadName(string path,string name)
     {
         ActorContainer actorContainer = new ActorContainer();
         actorContainer = LoadActors(path);
@@ -30,7 +31,7 @@ public class SaveData
 
 
         ActorContainer newactors = new ActorContainer();
-        ActorContainer actors = SaveData.LoadActors(Path.Combine(Application.dataPath, "Resources/actors.xml"));
+        ActorContainer actors = LoadActors(Path.Combine(Application.dataPath, "Resources/actors.xml"));
         foreach (ActorData data in actors.actors)
         {
             if (data.name == tosavedata.name)
@@ -47,7 +48,7 @@ public class SaveData
             newactors.actors.Add(tosavedata);
         }
 
-        SaveData.SaveActors(Path.Combine(Application.dataPath, "Resources/actors.xml"), newactors);
+        SaveActors(Path.Combine(Application.dataPath, "Resources/actors.xml"), newactors);
     }
     public static ActorContainer LoadActors(string path)
     {
@@ -59,6 +60,7 @@ public class SaveData
         
         return actors;
     }
+
     public static void SaveActors(string path,ActorContainer actors)
     {
         XmlSerializer serializer = new XmlSerializer(typeof(ActorContainer));
@@ -66,4 +68,22 @@ public class SaveData
         serializer.Serialize(stream, actors);
         stream.Close();
     }
+     public static List<ActorData> TopPlayers()
+     {
+         ActorContainer actors = LoadActors(Path.Combine(Application.dataPath, "Resources/actors.xml"));
+
+        List<ActorData> unsorted = new List<ActorData>();
+
+        foreach (ActorData data in actors.actors)
+         {
+
+            unsorted.Add(data);
+
+        }
+
+        List<ActorData> sorrted = unsorted.OrderBy(o => o.score).ToList();
+        Debug.Log(sorrted);
+        return sorrted;
+    }
+
 }

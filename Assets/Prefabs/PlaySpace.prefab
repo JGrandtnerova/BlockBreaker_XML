@@ -184,6 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0f20e3f25cfb13429c42c7d663bfc42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lopticka: {fileID: 0}
+  padlo: {fileID: 0}
 --- !u!1 &696449793515805293
 GameObject:
   m_ObjectHideFlags: 0

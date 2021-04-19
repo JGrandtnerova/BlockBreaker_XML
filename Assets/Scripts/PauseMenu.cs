@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -12,6 +13,13 @@ public class PauseMenu : MonoBehaviour
 
     public static string playername;
 
+    //zobrazit playername
+    [SerializeField] TextMeshProUGUI playerNameText;
+
+    private void Start()
+    {
+        playerNameText.text = playername;
+    }
 
     // Update is called once per frame
     void Update()
@@ -46,15 +54,18 @@ public class PauseMenu : MonoBehaviour
         data.name = playername;
         data.level = SceneManager.GetActiveScene().buildIndex;
         data.score = GameStatus.currentScore;
+        data.health = GameStatus.zivot;
 
         SaveData.SaveActor(data);
     }
 
     public void LoadData()
     {
-        ActorData data = SaveData.Load(System.IO.Path.Combine(Application.dataPath, "Resources/actors.xml"), playername);
+        ActorData data = SaveData.LoadName(System.IO.Path.Combine(Application.dataPath, "Resources/actors.xml"), playername);
         GameStatus.currentScore = data.score;
+        GameStatus.zivot = data.health;
         SceneManager.LoadScene(data.level);
         gamePaused = false;
+        Time.timeScale = 1f;
     }
 }

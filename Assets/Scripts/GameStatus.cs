@@ -13,14 +13,18 @@ public class GameStatus : MonoBehaviour
 
     [SerializeField] bool isAutoPlayEnabled;
 
+    public static int zivot;
+
     public void AddToScore()
     {
         currentScore += pointsPerBlockDestroyed;
         scoreText.text = currentScore.ToString();
     }
 
+
     private void Awake()
     {
+        scoreText.text = currentScore.ToString();
         int gameStatusCount = FindObjectsOfType<GameStatus>().Length;
         //spocita kolko objektov typu GameStatus mam
         //ak sa zisti ze ich mam viac ako 1 napr. pri prechode do dalsieho levelu tak

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 [XmlRoot("ActorCollection")] //nazov schemy rootu/korena XML dokumentu
 public class ActorContainer
 {
-    [XmlArray("Actors")]
+    [XmlArray("Actor")]
     [XmlArrayItem("Actors")]
     public List<ActorData> actors = new List<ActorData>();
 

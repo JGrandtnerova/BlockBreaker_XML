@@ -123,9 +123,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakSound: {fileID: 8300000, guid: c605bc6bfd140aa4b9c79e217e32e966, type: 3}
-  blockSparkleVFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
   maxHits: 3
   timesHit: 0
   hitSprites:
   - {fileID: 21300000, guid: 1309a78b2bbd8db4a94004ba9e32356f, type: 3}
   - {fileID: 21300000, guid: c2f2dc2c325947449bd2805429c337f1, type: 3}
+  deathVFX: {fileID: 3538579774861501555, guid: 741bdce76b3c4994b924425b73d04882, type: 3}
+  durationOfExplosion: 1
+  bonus: {fileID: 0}

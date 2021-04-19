@@ -25,6 +25,7 @@ public class SceneLoader : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
         GameStatus.currentScore = 0;
+        GameStatus.zivot = 3;
     }
 
     public void LoadStartScene()
@@ -35,13 +36,18 @@ public class SceneLoader : MonoBehaviour
     public void LoadSavedScene()
     {
         string name = playername.text;
-        ActorData data = SaveData.Load(System.IO.Path.Combine(Application.dataPath, "Resources/actors.xml"), name);
+        ActorData data = SaveData.LoadName(System.IO.Path.Combine(Application.dataPath, "Resources/actors.xml"), name);
         PauseMenu.playername = name;
         
         Debug.Log("Text: " + data.score);
         SceneManager.LoadScene(data.level);
         GameStatus.currentScore = data.score;
+        GameStatus.zivot = data.health;
+    }
 
+    public void TopScore()
+    {
+        SceneManager.LoadScene(4);
     }
 
     public void QuitGame()

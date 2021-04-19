@@ -6,28 +6,36 @@ public class Block : MonoBehaviour
 {
     [SerializeField] AudioClip breakSound;
     //premenna pri pridanie audia ktore sa prehra ak sa blok zrusi
-    [SerializeField] GameObject blockSparkleVFX;
+    //[SerializeField] GameObject blockSparkleVFX;
     [SerializeField] int maxHits;
 
     //cached reference
     Level level;
+
     //state variables
     [SerializeField] int timesHit; //TODO only serialized for debug purpose
 
     [SerializeField] Sprite[] hitSprites;
 
+    // destroy blocks effect
+    [SerializeField] GameObject deathVFX;
+    [SerializeField] float durationOfExplosion = 1f;
+
+
+    [SerializeField] private GameObject bonus;
+
     private void Start()
     {
+
         CountBreakableBlocks();
     }
 
     private void CountBreakableBlocks()
     {
         level = FindObjectOfType<Level>();
-        if (tag == "Breakable")
-        {
+
             level.CountBlocks();
-        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -35,6 +43,10 @@ public class Block : MonoBehaviour
         if (tag == "Breakable")
         {
             HandleHit();
+        }
+        if (tag == "Special")
+        {
+            HandleSpecial();
         }
     }
 
@@ -65,19 +77,31 @@ public class Block : MonoBehaviour
     }
 
     private void DestroyBlock()
-    { 
+    {
         AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
         Destroy(gameObject);
         level.BlockDestroyed();
         FindObjectOfType<GameStatus>().AddToScore();
-        TriggerSparklesVFX(); //metoda ktora vytvori particle effect
+        //TriggerSparklesVFX(); //metoda ktora vytvori particle effect
+
+        GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
+        Destroy(explosion, durationOfExplosion);
     }
 
-    private void TriggerSparklesVFX()
+
+    /*    private void TriggerSparklesVFX()
+        {
+            GameObject sparkles = Instantiate(blockSparkleVFX, transform.position,transform.rotation);
+            //vytvori instanciu na urcenej pozicii s prislusnou rotaciou
+            Destroy(sparkles, 1f);//sposobi znicenie instancie po 1 sekunde
+        }
+    */
+    void HandleSpecial()
     {
-        GameObject sparkles = Instantiate(blockSparkleVFX, transform.position,transform.rotation);
-        //vytvori instanciu na urcenej pozicii s prislusnou rotaciou
-        Destroy(sparkles, 1f);//sposobi znicenie instancie po 1 sekunde
+
+        GameObject newBonus = Instantiate(bonus, transform.position, Quaternion.identity) as GameObject;
+        DestroyBlock();
+
     }
 
 }

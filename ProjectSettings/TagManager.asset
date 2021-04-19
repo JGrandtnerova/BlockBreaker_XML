@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Breakable
   - Unbreakable
+  - Special
+  - ExtraBall
+  - Collectables
+  - paddle
   layers:
   - Default
   - TransparentFX

@@ -13,4 +13,7 @@ public class ActorData
 
     [XmlElement("Score")]
     public int score;
+
+    [XmlElement("Health")]
+    public int health;
 }
