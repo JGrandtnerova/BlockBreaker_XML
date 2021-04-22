@@ -78,14 +78,13 @@ public class Block : MonoBehaviour
 
     private void DestroyBlock()
     {
+        FindObjectOfType<GameStatus>().AddToScore();
         AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
         Destroy(gameObject);
-        level.BlockDestroyed();
-        FindObjectOfType<GameStatus>().AddToScore();
         //TriggerSparklesVFX(); //metoda ktora vytvori particle effect
-
         GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(explosion, durationOfExplosion);
+        level.BlockDestroyed();
     }
 
 

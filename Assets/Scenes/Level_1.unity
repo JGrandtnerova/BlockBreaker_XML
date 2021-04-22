@@ -189,6 +189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpecialBlock (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4124058758420326350, guid: 743890164fb536041a7f85ceac3e4df5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 743890164fb536041a7f85ceac3e4df5, type: 3}
 --- !u!4 &224232970 stripped
@@ -265,29 +269,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 160883458, guid: 769ad4408002a6546ac23d427c081ff8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 160883459, guid: 769ad4408002a6546ac23d427c081ff8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -226
-      objectReference: {fileID: 0}
-    - target: {fileID: 160883459, guid: 769ad4408002a6546ac23d427c081ff8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -1109
-      objectReference: {fileID: 0}
-    - target: {fileID: 2114913255, guid: 769ad4408002a6546ac23d427c081ff8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5414982405590455145, guid: 769ad4408002a6546ac23d427c081ff8, type: 3}
       propertyPath: m_Name
       value: GameStatus
-      objectReference: {fileID: 0}
-    - target: {fileID: 5414982405590455146, guid: 769ad4408002a6546ac23d427c081ff8, type: 3}
-      propertyPath: isAutoPlayEnabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5414982405590455147, guid: 769ad4408002a6546ac23d427c081ff8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -863,6 +847,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpecialBlock
       objectReference: {fileID: 0}
+    - target: {fileID: 4124058758420326350, guid: 743890164fb536041a7f85ceac3e4df5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 743890164fb536041a7f85ceac3e4df5, type: 3}
 --- !u!4 &1038975270 stripped
@@ -1048,6 +1036,10 @@ PrefabInstance:
     - target: {fileID: 4124058758420326350, guid: 743890164fb536041a7f85ceac3e4df5, type: 3}
       propertyPath: m_Name
       value: SpecialBlock (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4124058758420326350, guid: 743890164fb536041a7f85ceac3e4df5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 743890164fb536041a7f85ceac3e4df5, type: 3}

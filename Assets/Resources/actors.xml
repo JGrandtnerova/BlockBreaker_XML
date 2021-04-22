@@ -51,5 +51,20 @@
       <Score>8</Score>
       <Health>2</Health>
     </Actors>
+    <Actors Name="sadasd">
+      <Level>2</Level>
+      <Score>8</Score>
+      <Health>3</Health>
+    </Actors>
+    <Actors Name="ggggg">
+      <Level>2</Level>
+      <Score>4</Score>
+      <Health>2</Health>
+    </Actors>
+    <Actors Name="hhhhh">
+      <Level>2</Level>
+      <Score>16</Score>
+      <Health>3</Health>
+    </Actors>
   </Actor>
 </ActorCollection>
