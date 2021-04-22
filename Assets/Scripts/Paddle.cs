@@ -51,6 +51,7 @@ public class Paddle : MonoBehaviour
     public void AddToHealth()
     { 
         healthCount.text = GameStatus.zivot.ToString();
+        Debug.Log("ubralo zivot");
     }
 
     private float GetXPos()

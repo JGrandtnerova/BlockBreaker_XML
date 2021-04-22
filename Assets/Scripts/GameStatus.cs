@@ -13,7 +13,7 @@ public class GameStatus : MonoBehaviour
 
     [SerializeField] bool isAutoPlayEnabled;
 
-    public static int zivot;
+    public static int zivot = 3;
 
     public void AddToScore()
     {

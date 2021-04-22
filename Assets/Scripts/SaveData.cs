@@ -81,8 +81,8 @@ public class SaveData
 
         }
 
-        List<ActorData> sorrted = unsorted.OrderBy(o => o.score).ToList();
-        Debug.Log(sorrted);
+        List<ActorData> sorrted = unsorted.OrderByDescending(o => o.score).ToList();
+
         return sorrted;
     }
 

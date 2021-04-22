@@ -31,5 +31,25 @@
       <Score>6</Score>
       <Health>1</Health>
     </Actors>
+    <Actors Name="fff">
+      <Level>2</Level>
+      <Score>54</Score>
+      <Health>1</Health>
+    </Actors>
+    <Actors Name="test">
+      <Level>2</Level>
+      <Score>26</Score>
+      <Health>3</Health>
+    </Actors>
+    <Actors Name="blabla">
+      <Level>2</Level>
+      <Score>70</Score>
+      <Health>3</Health>
+    </Actors>
+    <Actors Name="test234">
+      <Level>2</Level>
+      <Score>8</Score>
+      <Health>2</Health>
+    </Actors>
   </Actor>
 </ActorCollection>

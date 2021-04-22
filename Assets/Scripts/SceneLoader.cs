@@ -14,7 +14,12 @@ public class SceneLoader : MonoBehaviour
     {
         // pri presune z levelov
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (currentSceneIndex == 2)
+        {
+            FindObjectOfType<PauseMenu>().SaveDatas();
+        }
         SceneManager.LoadScene(currentSceneIndex + 1);
+        
     }
     public void LoadfirstScene()
     {
